@@ -1,4 +1,4 @@
-﻿using PracticaCafeteria;
+using PracticaCafeteria;
 
 namespace PrimeraPracticaCafeteria
 {
@@ -6,46 +6,48 @@ namespace PrimeraPracticaCafeteria
 	{
 		static void Main(string[] args)
 		{
+			// Creación de la lista 
+			List<Bebida> pedido = new List<Bebida>();
 
-			Bebida[] bebidas = new Bebida[3];
+			//lista
+			pedido.Add(new BebidaCaliente("Café Americano", "Grande", 90.5f, 45.00));
+			pedido.Add(new BebidaFria("Frappé de Capuchino", "Mediano", 5, 60.00));
+			pedido.Add(new BebidaCaliente("Chocolate Caliente", "Chico", 85.0f, 35.00));
+			pedido.Add(new BebidaFria("Té Helado", "Grande", 3, 30.00));
+			pedido.Add(new BebidaCaliente("Latte", "Mediano", 92.0f, 55.00));
 
-			string nombre, tamaño;
-			double precio;
-			// ciclo para pedir los datos de la bebida 
-			for (int i = 0; i < 3; i++)
+			//llamar a metodo para aplicar descuento
+			foreach (Bebida bebida in pedido)
 			{
-				Console.WriteLine($"\nIngrese nombre de la bebida {i}:");
-				nombre = Console.ReadLine();
-
-				Console.WriteLine("Ingrese tamaño:");
-				tamaño = Console.ReadLine();
-
-				Console.WriteLine("Ingrese precio:");
-				precio = Convert.ToDouble(Console.ReadLine());
-
-				bebidas[i] = new Bebida(nombre, tamaño, precio);
-			}
-			//llamar a metodo para aplicar descuento 
-			bebidas[0].AplicarDescuento(10);
-			bebidas[1].AplicarDescuento(10);
-			bebidas[2].AplicarDescuento(10);
-
-			// cilo para llamar al metodo preparar de cada bebida
-			Console.WriteLine("\nPreparación\n");
-
-
-			for (int i = 0; i < 3; i++)
-			{
-				bebidas[i].Preparar();
+				bebida.AplicarDescuento(10);
 			}
 
-			// ciclo para llamar al metodo mostrar descripcion de cada bebida
-			Console.WriteLine("\nDescripción\n");
+			//  foreach
+			Console.WriteLine("TICKET DE BARRA\n");
 
-			for (int i = 0; i < 3; i++)
+			foreach (Bebida bebida in pedido)
 			{
-				bebidas[i].MostrarDescripcion();
+				// Invocamos el metodo Preparar() 
+				Console.WriteLine(bebida.Preparar());
+
+				// Regla de negocio
+				if (bebida is BebidaCaliente caliente && caliente.temperatura > 88)
+				{
+					Console.WriteLine("ADVERTENCIA: bebida caliente ");
+				}
+
+				Console.WriteLine();
 			}
+
+			//
+			//calcular el costo total del pedido
+			double total = 0;
+			foreach (Bebida bebida in pedido)
+			{
+				total =total + bebida.Precio;
+			}
+
+			Console.WriteLine("Total del pedido: " + total);
 		}
 	}
 }

@@ -1,13 +1,20 @@
-﻿using System;
+using System;
 
 namespace PracticaCafeteria
 {
 	class Bebida
 	{
 		//atributos privados
-		private string nombre;
-		private string tamaño;
-		private double precio;
+		protected string nombre;
+		protected string tamaño;
+		protected double precio;
+
+		//propiedad encapsulada para acceder al precio
+		public double Precio
+		{
+			get { return precio; }
+			set { precio = value; }
+		}
 
 		public Bebida(string nombre, string tamaño, double precio)
 		{
@@ -18,9 +25,9 @@ namespace PracticaCafeteria
 
 
 		// metodo para preparar la bebida
-		public void Preparar()
+		public virtual string Preparar()
 		{
-			Console.WriteLine("Preparando un " + nombre + " tamaño " + tamaño + "...");
+			return "Preparando un " + nombre + " de tamaño " + tamaño + "...";
 		}
 		//metodo aplicar descuento	
 		public void AplicarDescuento(double porcentaje)
