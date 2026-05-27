@@ -21,7 +21,7 @@ namespace PrimeraPracticaCafeteria
 		//metodo sobreescrito
 		public override string Preparar()
 		{
-			return "Preparando un " + nombre + " caliente de tamaño " + tamaño + " a una temperatura de " + Temperatura + " grados...";
+			return "Preparando un " + nombre + " caliente de tamaño " + tamaño + " a una temperatura de " + Temperatura + " grados";
 		}
 	}
 }

@@ -10,11 +10,11 @@ namespace PrimeraPracticaCafeteria
 			List<Bebida> pedido = new List<Bebida>();
 
 			//lista
-			pedido.Add(new BebidaCaliente("Café Americano", "Grande", 90.5f, 45.00));
-			pedido.Add(new BebidaFria("Frappé de Capuchino", "Mediano", 5, 60.00));
-			pedido.Add(new BebidaCaliente("Chocolate Caliente", "Chico", 85.0f, 35.00));
-			pedido.Add(new BebidaFria("Té Helado", "Grande", 3, 30.00));
-			pedido.Add(new BebidaCaliente("Latte", "Mediano", 92.0f, 55.00));
+			pedido.Add(new BebidaCaliente("Cafe de olla", "Grande", 90.5f, 45.00));
+			pedido.Add(new BebidaFria("Refresco", "Mediano", 5, 60.00));
+			pedido.Add(new BebidaCaliente("Chocolate", "Chico", 85.0f, 35.00));
+			pedido.Add(new BebidaFria("Agua", "Grande", 3, 30.00));
+			pedido.Add(new BebidaCaliente("Te", "Mediano", 92.0f, 55.00));
 
 			//llamar a metodo para aplicar descuento
 			foreach (Bebida bebida in pedido)

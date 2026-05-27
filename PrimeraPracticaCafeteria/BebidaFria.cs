@@ -21,7 +21,7 @@ namespace PrimeraPracticaCafeteria
 		//metodo sobreescrito
 		public override string Preparar()
 		{
-			return "Estamos preparando un : " + nombre + " Helado (Con " + CantidadHielo + " cubos de hielo) tamaño : " + tamaño;
+			return "Estamos preparando un : " + nombre + " Frio Con " + CantidadHielo + " cubos de hielo tamaño : " + tamaño;
 		}
 	}
 }
